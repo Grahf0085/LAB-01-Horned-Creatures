@@ -4,7 +4,8 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import CreatureList from './CreatureList';
-<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/code-new-roman" type="text/css" />;
+import creatures from './creatures.js';
+< link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/code-new-roman" type="text/css" />;
 
 class App extends Component {
 
@@ -17,7 +18,7 @@ class App extends Component {
 
         <main>
 
-          <CreatureList />
+          <CreatureList creatures={creatures} />
 
         </main>
 

@@ -5,15 +5,14 @@ import CreatureItem from './CreatureItem';
 class CreatureList extends Component {
 
   render() {
+
+    const creatures = this.props.creatures;
+
     return (
       <ul className="CreatureList">
-        <CreatureItem />
-        <CreatureItem />
-        <CreatureItem />
-        <CreatureItem />
-        <CreatureItem />
-        <CreatureItem />
-
+        {creatures.map(creature => (
+          <CreatureItem key={creature.title} creature={creature} />
+        ))}
       </ul>
     );
   }
