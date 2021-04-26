@@ -1,10 +1,13 @@
-import react, { Component } from 'react';
+import React, { Component } from 'react';
+import './Footer.css';
 
 class Footer extends Component {
 
   render() {
     return (
-      <h2>Footer</h2>
+      <footer className="Footer">
+        2021 Famous Horned Creatures
+      </footer>
     );
   }
 }
