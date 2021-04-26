@@ -5,7 +5,10 @@
   background-color:lavenderblush;
 }
 
-/* TODO: remove **/
+
+.App main {
+  overflow: auto;
+}
 .temp-images {
   height: 200px;
 }

@@ -6,8 +6,14 @@ class CreatureList extends Component {
 
   render() {
     return (
-      <ul>
+      <ul className="CreatureList">
         <CreatureItem />
+        <CreatureItem />
+        <CreatureItem />
+        <CreatureItem />
+        <CreatureItem />
+        <CreatureItem />
+
       </ul>
     );
   }

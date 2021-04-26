@@ -5,7 +5,11 @@ class Header extends Component {
 
   render() {
     return (
-      <h1>Header</h1>
+      <header className="Header">
+
+        <h1>Famous Horned Creatures</h1>
+
+      </header>
     );
   }
 }
