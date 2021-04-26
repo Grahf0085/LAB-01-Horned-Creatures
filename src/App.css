@@ -1,8 +1,16 @@
 .App {
+  height: 100vh;
   display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color:lavenderblush;
 }
 
 /* TODO: remove **/
 .temp-images {
   height: 200px;
+}
+
+
+* {
+  font-family: 'CodeNewRomanRegular';
 }
