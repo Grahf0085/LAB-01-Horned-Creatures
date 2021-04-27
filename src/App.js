@@ -38,6 +38,8 @@ class App extends Component {
 
   render() {
 
+    const { creat } = this.state;
+
     return (
       <div className="App">
 
@@ -47,7 +49,7 @@ class App extends Component {
 
         <main>
 
-          <CreatureList creatures={creatures} />
+          <CreatureList creatures={creat} />
 
         </main>
 

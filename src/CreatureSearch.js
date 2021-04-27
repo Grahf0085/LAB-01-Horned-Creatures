@@ -22,6 +22,12 @@ export default class CreatureSearch extends Component {
     this.props.onSearch(this.state);
   }
 
+  componentDidUpdate(prevProp, prevState) {
+    if (prevState !== this.state) {
+      this.props.onSearch(this.state);
+    }
+  }
+
   render() {
 
     const { nameSearch, hornFilter, sortField } = this.state;
