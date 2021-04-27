@@ -11,6 +11,10 @@ import CreatureSearch from './CreatureSearch.js';
 
 class App extends Component {
 
+  state = {
+    creat: creatures
+  }
+
   handleSearch = () => {
 
   }
