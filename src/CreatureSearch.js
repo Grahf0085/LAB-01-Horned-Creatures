@@ -16,12 +16,17 @@ export default class CreatureSearch extends Component {
     this.setState({ sortField: target.value });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+  }
+
   render() {
 
     const { nameSearch, sortField } = this.state;
 
     return (
-      <form className="CreatureSearch">
+      <form className="CreatureSearch" onSubmit={this.handleSubmit}>
 
         <select
           name="sortField"
@@ -39,7 +44,7 @@ export default class CreatureSearch extends Component {
           onChange={this.handleNameFilter}
         />
 
-        <button>Search</button>
+        <button onClick={this.handleClick}>Search</button>
 
       </form >
     );
