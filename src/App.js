@@ -11,6 +11,10 @@ import CreatureSearch from './CreatureSearch.js';
 
 class App extends Component {
 
+  handleSearch = () => {
+
+  }
+
   render() {
 
     return (
@@ -18,7 +22,7 @@ class App extends Component {
 
         <Header />
 
-        <CreatureSearch />
+        <CreatureSearch onSearch={this.handleSearch} />
 
         <main>
 
