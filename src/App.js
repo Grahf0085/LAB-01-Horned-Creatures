@@ -11,11 +11,6 @@ import CreatureSearch from './CreatureSearch.js';
 
 class App extends Component {
 
-  state = {
-    nameSearch: '',
-    sortField: ''
-  }
-
   render() {
 
     return (
