@@ -8,6 +8,14 @@ export default class CreatureSearch extends Component {
     sortField: ''
   }
 
+  handleNameFilter = ({ target }) => {
+    this.setState({ nameSearch: target.value });
+  }
+
+  handleSortField = ({ target }) => {
+    this.setState({ sortField: target.value });
+  }
+
   render() {
 
     const { nameSearch, sortField } = this.state;
@@ -18,6 +26,7 @@ export default class CreatureSearch extends Component {
         <select
           name="sortField"
           value={sortField}
+          onChange={this.handleSortField}
         >
           <option value="all">All</option>
           <option value="name">Name</option>
@@ -27,6 +36,7 @@ export default class CreatureSearch extends Component {
         <input
           name="nameSearch"
           value={nameSearch}
+          onChange={this.handleNameFilter}
         />
 
         <button>Search</button>
