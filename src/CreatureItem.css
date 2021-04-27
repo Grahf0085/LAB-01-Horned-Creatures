@@ -1,7 +1,6 @@
 .CreatureItem {
   list-style: none;
   background-color:mistyrose;
-  border: 3px;
   border-color: black;
 
   display: grid;

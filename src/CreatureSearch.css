@@ -1,7 +1,14 @@
 .CreatureSearch {
 
-  padding: 20px;
-  margin: 0 20px;
-  background: white;
-  
+  padding: 10px 20px;
+  margin-bottom: 1em;
+  margin-left: 1.2em;
+  margin-right: 2em;
+  background: mistyrose;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+
 }
