@@ -5,6 +5,7 @@ export default class CreatureSearch extends Component {
 
   state = {
     nameSearch: '',
+    hornFilter: '',
     sortField: ''
   }
 
@@ -23,7 +24,8 @@ export default class CreatureSearch extends Component {
 
   render() {
 
-    const { nameSearch, sortField } = this.state;
+    const { nameSearch, hornFilter, sortField } = this.state;
+    const { types } = this.props;
 
     return (
       <form className="CreatureSearch" onSubmit={this.handleSubmit}>
@@ -33,7 +35,7 @@ export default class CreatureSearch extends Component {
           value={sortField}
           onChange={this.handleSortField}
         >
-          <option value="all">All</option>
+          <option value="">All</option>
           <option value="name">Name</option>
           <option value="horn">Horn</option>
         </select>
@@ -44,7 +46,7 @@ export default class CreatureSearch extends Component {
           onChange={this.handleNameFilter}
         />
 
-        <button onClick={this.handleClick}>Search</button>
+        <button>Search</button>
 
       </form >
     );

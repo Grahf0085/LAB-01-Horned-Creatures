@@ -7,7 +7,9 @@ import CreatureList from './CreatureList';
 import creatures from './creatures.js';
 import CreatureSearch from './CreatureSearch.js';
 
-< link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/code-new-roman" type="text/css" />;
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/code-new-roman" type="text/css" />;
+
+const creatureTypes = [...new Set(creatures.map(c => c.type))];
 
 class App extends Component {
 
@@ -15,8 +17,23 @@ class App extends Component {
     creat: creatures
   }
 
-  handleSearch = () => {
+  handleSearch = ({ nameSearch, hornFilter, sortField }) => {
+    const nameRegex = new RegExp(nameSearch, 'i');
 
+    const searchData = creatures
+      .filter(creature => {
+        return !nameSearch || creature.title.match(nameRegex);
+      })
+      .filter(creature => {
+        return !hornFilter || creature.horns === hornFilter;
+      })
+      .sort((a, b) => {
+        if (a[sortField] < b[sortField]) return -1;
+        if (a[sortField] > b[sortField]) return 1;
+        return 0;
+      });
+
+    this.setState({ creat: searchData });
   }
 
   render() {
@@ -26,7 +43,7 @@ class App extends Component {
 
         <Header />
 
-        <CreatureSearch onSearch={this.handleSearch} />
+        <CreatureSearch types={creatureTypes} onSearch={this.handleSearch} />
 
         <main>
 
