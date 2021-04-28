@@ -9,9 +9,8 @@ import CreatureSearch from './CreatureSearch.js';
 
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/code-new-roman" type="text/css" />;
 
-const creatureKeywords = [...new Set(creatures.map(c => c.keyword))]; // new array like thing of all creature titles?
+const creatureKeywords = [...new Set(creatures.map(c => c.keyword))];
 const creatureKeys = Object.keys(creatures[0]);
-console.log(creatureKeys);
 
 class App extends Component {
 
@@ -27,16 +26,17 @@ class App extends Component {
         return !nameSearch || creature.title.match(nameRegex);
       })
       .filter(creature => {
-        return !keywordsFilter || creature.keyword === keywordsFilter;
+        return !keywordsFilter || creature.keyword === keywordsFilter; //where is keywordsFilter coming from? 
+      })
+      .sort((a, b) => {
+        if (a[sortField] < b[sortField]) return 1;
+        if (a[sortField] > b[sortField]) return -1;
+        return 0;
       });
-    /*      .sort((a, b) => {                           //doesn't seem to sort?
-            if (a[sortField] < b[sortField]) return 1;
-            if (a[sortField] > b[sortField]) return -1;
-            return 0;
-          }); */
 
     this.setState({ creat: searchData });
   }
+  // on line 53, JSX(?) with props? But only one prop(?).  In CreatureList.js line 14 it has two props
 
   render() {
 

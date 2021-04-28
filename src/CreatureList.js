@@ -11,7 +11,7 @@ class CreatureList extends Component {
     return (
       <ul className="CreatureList">
         {creatures.map(creature => (
-          <CreatureItem key={creature.title} creature={creature} />
+          <CreatureItem key={creature.title} creature={creature} /> // Why key and creature here but only creatures in app.js line 54?
         ))}
       </ul>
     );

@@ -3,13 +3,13 @@ import './CreatureSearch.css';
 
 export default class CreatureSearch extends Component {
 
-  state = {  //empty state?
+  state = {
     nameSearch: '',
     sortField: '',
     keywordsFilter: '',
   }
 
-  handleNameFilter = ({ target }) => { // target???
+  handleNameFilter = ({ target }) => {
     this.setState({ nameSearch: target.value });
   }
 
@@ -38,10 +38,11 @@ export default class CreatureSearch extends Component {
     const { keywords, keys } = this.props;
 
     return (
+
       <form className="CreatureSearch" onSubmit={this.handleSubmit}>
 
         <select
-          name="keywordsFilter"
+          name="keywordsFilter" // name and value names always match?  Can name name whatever you want? 
           value={keywordsFilter}
           onChange={this.handleKeywordsChange}
         >
