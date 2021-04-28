@@ -31,7 +31,6 @@ export default class CreatureSearch extends Component {
   render() {
 
     const { nameSearch, hornFilter, sortField } = this.state;
-    const { types } = this.props;
 
     return (
       <form className="CreatureSearch" onSubmit={this.handleSubmit}>
