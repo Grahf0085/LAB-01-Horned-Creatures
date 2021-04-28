@@ -9,7 +9,7 @@ import CreatureSearch from './CreatureSearch.js';
 
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/code-new-roman" type="text/css" />;
 
-const creatureTypes = [...new Set(creatures.map(c => c.type))];
+const creatureTypes = [...new Set(creatures.map(c => c.title))]; // new array like thing of all creature titles?
 
 class App extends Component {
 
@@ -17,21 +17,18 @@ class App extends Component {
     creat: creatures
   }
 
-  handleSearch = ({ nameSearch, hornFilter, sortField }) => {
+  handleSearch = ({ nameSearch, sortField }) => {
     const nameRegex = new RegExp(nameSearch, 'i');
 
     const searchData = creatures
       .filter(creature => {
         return !nameSearch || creature.title.match(nameRegex);
-      })
-      .filter(creature => {
-        return !hornFilter || creature.horns === hornFilter;
-      })
-      .sort((a, b) => {
-        if (a[sortField] < b[sortField]) return -1;
-        if (a[sortField] > b[sortField]) return 1;
-        return 0;
       });
+    /*      .sort((a, b) => {                           //doesn't seem to sort?
+            if (a[sortField] < b[sortField]) return 1;
+            if (a[sortField] > b[sortField]) return -1;
+            return 0;
+          }); */
 
     this.setState({ creat: searchData });
   }
@@ -45,7 +42,7 @@ class App extends Component {
 
         <Header />
 
-        <CreatureSearch types={creatureTypes} onSearch={this.handleSearch} />
+        { <CreatureSearch types={creatureTypes} onSearch={this.handleSearch} />}
 
         <main>
 

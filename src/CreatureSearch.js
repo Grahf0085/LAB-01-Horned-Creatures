@@ -3,13 +3,12 @@ import './CreatureSearch.css';
 
 export default class CreatureSearch extends Component {
 
-  state = {
+  state = {  //empty state?
     nameSearch: '',
-    hornFilter: '',
     sortField: ''
   }
 
-  handleNameFilter = ({ target }) => {
+  handleNameFilter = ({ target }) => { // target???
     this.setState({ nameSearch: target.value });
   }
 
@@ -40,9 +39,8 @@ export default class CreatureSearch extends Component {
           value={sortField}
           onChange={this.handleSortField}
         >
-          <option value="">All</option>
+
           <option value="name">Name</option>
-          <option value="horn">Horn</option>
         </select>
 
         <input
