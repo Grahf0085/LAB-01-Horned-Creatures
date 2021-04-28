@@ -1,0 +1,79 @@
+import React, { Component } from 'react';
+import './CreatureSearch.css';
+
+export default class CreatureSearch extends Component {
+
+  state = {
+    nameSearch: '',
+    sortField: '',
+    keywordsFilter: '',
+  }
+
+  handleNameFilter = ({ target }) => {
+    this.setState({ nameSearch: target.value });
+  }
+
+  handleSortField = ({ target }) => {
+    this.setState({ sortField: target.value });
+  }
+
+  handleKeywordsChange = ({ target }) => {
+    this.setState({ keywordsFilter: target.value });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.onSearch(this.state);
+  }
+
+  componentDidUpdate(prevProp, prevState) {
+    if (prevState !== this.state) {
+      this.props.onSearch(this.state);
+    }
+  }
+
+  render() {
+
+    const { nameSearch, sortField, keywordsFilter } = this.state;
+    const { keywords, keys } = this.props;
+
+    return (
+
+      <form className="CreatureSearch" onSubmit={this.handleSubmit}>
+
+        <select
+          name="keywordsFilter" // name and value names always match?  Can name name whatever you want? 
+          value={keywordsFilter}
+          onChange={this.handleKeywordsChange}
+        >
+          <option value="">Keywords</option>
+          {keywords.map(keyword => (
+            <option key={keyword} value={keyword}>{keyword}</option>
+          ))}
+        </select>
+
+        <label>
+          Name:
+          <input
+            name="nameSearch"
+            value={nameSearch}
+            onChange={this.handleNameFilter}
+          />
+        </label>
+        <select
+          name="sortField"
+          value={sortField}
+          onChange={this.handleSortField}
+        >
+
+          <option value="">Keys</option>
+          {keys.map(key => (
+            <option key={key} value={key}>{key}</option>
+          ))}
+        </select>
+
+
+      </form >
+    );
+  }
+}

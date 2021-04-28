@@ -1,0 +1,28 @@
+.CreatureItem {
+  list-style: none;
+  background-color:mistyrose;
+  border-color: black;
+
+  display: grid;
+  grid-template-rows: 30px 30px 200px 50px;
+  justify-items: center;
+  grid-gap: 10px;
+}
+
+.CreatureItem img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  margin: 0;
+}
+
+.CreatureItem h2 {
+  margin: 10px;
+}
+
+.CreatureItem h3 {
+  margin: 0;
+}
+.CreatureItem p {
+  margin: 0;
+}
