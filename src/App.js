@@ -10,6 +10,8 @@ import CreatureSearch from './CreatureSearch.js';
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/code-new-roman" type="text/css" />;
 
 const creatureKeywords = [...new Set(creatures.map(c => c.keyword))]; // new array like thing of all creature titles?
+const creatureKeys = Object.keys(creatures[0]);
+console.log(creatureKeys);
 
 class App extends Component {
 
@@ -45,7 +47,7 @@ class App extends Component {
 
         <Header />
 
-        <CreatureSearch keywords={creatureKeywords} onSearch={this.handleSearch} />
+        <CreatureSearch keys={creatureKeys} keywords={creatureKeywords} onSearch={this.handleSearch} />
 
         <main>
 
