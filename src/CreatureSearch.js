@@ -5,7 +5,8 @@ export default class CreatureSearch extends Component {
 
   state = {  //empty state?
     nameSearch: '',
-    sortField: ''
+    sortField: '',
+    keywordsFilter: ''
   }
 
   handleNameFilter = ({ target }) => { // target???
@@ -14,6 +15,10 @@ export default class CreatureSearch extends Component {
 
   handleSortField = ({ target }) => {
     this.setState({ sortField: target.value });
+  }
+
+  handleKeywordsChange = ({ target }) => {
+    this.setState({ keywordsFilter: target.value });
   }
 
   handleSubmit = (e) => {
@@ -29,18 +34,21 @@ export default class CreatureSearch extends Component {
 
   render() {
 
-    const { nameSearch, sortField } = this.state;
+    const { nameSearch, sortField, keywordsFilter } = this.state;
+    const { keywords } = this.props;
 
     return (
       <form className="CreatureSearch" onSubmit={this.handleSubmit}>
 
         <select
-          name="sortField"
-          value={sortField}
-          onChange={this.handleSortField}
+          name="keywordsFilter"
+          value={keywordsFilter}
+          onChange={this.handleKeywordsChange}
         >
-
-          <option value="name">Name</option>
+          <option value=""></option>
+          {keywords.map(keyword => (
+            <option key={keyword} value={keyword}>{keyword}</option>
+          ))}
         </select>
 
         <input
@@ -48,8 +56,13 @@ export default class CreatureSearch extends Component {
           value={nameSearch}
           onChange={this.handleNameFilter}
         />
-
-        <button>Search</button>
+        <select
+          name="sortField"
+          value={sortField}
+          onChange={this.handleSortField}
+        >
+          <option value="name">Name</option>
+        </select>
 
       </form >
     );
